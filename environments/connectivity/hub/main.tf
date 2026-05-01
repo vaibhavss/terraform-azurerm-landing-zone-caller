@@ -1,5 +1,5 @@
 locals {
-  config = yamldecode(file("${path.module}/../../../config/connectivity/dev.yaml"))
+  config = yamldecode(file("${path.module}/../../../config/connectivity/hub.yaml"))
 }
 
 module "connectivity_core" {

@@ -1,14 +1,14 @@
 common_tags:
-  environment: dev
   platform: connectivity
+  scope: hub
   managed-by: terraform
 
 resource_group:
-  name: rg-connectivity-dev-we-001
+  name: rg-connectivity-hub-we-001
   location: westeurope
 
 virtual_network:
-  name: vnet-hub-dev-we-001
+  name: vnet-hub-we-001
   address_space:
     - 10.0.0.0/16
   dns_servers:
