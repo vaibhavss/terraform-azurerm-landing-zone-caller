@@ -44,6 +44,5 @@ terraform plan
 - `vaibhavss/terraform-azurerm-route`
 - `vaibhavss/terraform-azurerm-dns-zone`
 - `vaibhavss/terraform-azurerm-private-dns-zone`
-- `vaibhavss/terraform-azurerm-private-dns-zone-virtual-network-link`
 
 The composition module currently references these repos with `?ref=main`. Replace those with version tags once you start releasing module versions.

@@ -24,6 +24,7 @@ output "private_dns_zone_ids" {
 output "private_dns_zone_link_ids" {
   description = "Private DNS zone virtual network link IDs keyed by zone/link map key."
   value = {
-    for key, link in module.private_dns_zone_links : key => link.id
+    for zone_key, zone in module.private_dns_zones :
+    zone_key => zone.virtual_network_link_ids
   }
 }
