@@ -1,0 +1,53 @@
+common_tags:
+  environment: dev
+  platform: connectivity
+  managed-by: terraform
+
+resource_group:
+  name: rg-connectivity-dev-we-001
+  location: westeurope
+
+virtual_network:
+  name: vnet-hub-dev-we-001
+  address_space:
+    - 10.0.0.0/16
+  dns_servers:
+    - 10.0.0.4
+
+inline_subnets:
+  azure-firewall:
+    name: AzureFirewallSubnet
+    address_prefixes:
+      - 10.0.0.0/24
+  azure-firewall-management:
+    name: AzureFirewallManagementSubnet
+    address_prefixes:
+      - 10.0.1.0/24
+  gateway:
+    name: GatewaySubnet
+    address_prefixes:
+      - 10.0.2.0/27
+  shared-services:
+    name: snet-shared-services
+    address_prefixes:
+      - 10.0.10.0/24
+    attach_route_table: true
+
+standalone_subnets:
+  private-endpoints:
+    name: snet-private-endpoints
+    address_prefixes:
+      - 10.0.20.0/24
+    private_endpoint_network_policies: Disabled
+    service_endpoints:
+      - Microsoft.Storage
+
+route_table:
+  name: rt-hub-shared-services-001
+
+routes:
+  default-egress:
+    name: default-egress
+    address_prefix: 0.0.0.0/0
+    next_hop_type: VirtualAppliance
+    next_hop_in_ip_address: 10.0.0.4
