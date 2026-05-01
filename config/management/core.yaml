@@ -1,0 +1,18 @@
+common_tags:
+  platform: management
+  scope: core
+  managed-by: terraform
+
+resource_group:
+  name: rg-management-core-we-001
+  location: westeurope
+
+public_dns_zones: {}
+
+private_dns_zones:
+  blob:
+    name: privatelink.blob.core.windows.net
+    virtual_network_links: {}
+  keyvault:
+    name: privatelink.vaultcore.azure.net
+    virtual_network_links: {}
